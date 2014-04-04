@@ -1,44 +1,42 @@
 <?php
-class Sansur {
-	
-public $yazi;
-public $bul;
-public $degis;
-public $duzenli;
-public $sql;
-public $bulunacak;
-public $degistirilecek;
-public $sonuc;
+//********************************************* 
+//Tarih:21.07.2010 Yazılımcı RaSiM ÖZDİNÇ	  * 
+//********************************************* 
 
-function __construct(){
-$this->yazi="";
-$this->bul="";
-$this->degis="";
-$this->duzenli="";
-}
+class Sansur { 
+     
+public $yazi; 
+public $bul; 
+public $degis; 
+public $duzenli; 
+public $sql; // sql sorgusu 
+public $bulunacak; // bulunacak sütun 
+public $degistirilecek; // değiştirilecek sütun 
+public $sonuc; 
 
-public function sansural() {
-$this->bul=array();
-$this->degis=array();
+	function __construct(){ 
+        $this->yazi=""; 
+        $this->bul=""; 
+        $this->degis=""; 
+        $this->duzenli=""; 
+	} 
 
-$sql = mysql_query("SELECT * FROM sansur");
-$bulunacak="kelime";
-$degistirilecek="sansuru";
-		
-while($sonuc=mysql_fetch_assoc($sql)){
-$this->bul[]= $sonuc[$bulunacak];
-$this->degis[]= $sonuc[$degistirilecek];
-}
-}
+    public function sansural($sql,$bulunacak,$degistirilecek) { 
+        $this->bul=array(); 
+        $this->degis=array(); 
+        $sql=mysql_query($sql); 
+        while($sonuc=mysql_fetch_assoc($sql)){ 
+	        $this->bul[]= $sonuc[$bulunacak]; 
+	        $this->degis[]= $sonuc[$degistirilecek]; 
+            } 
+    } 
 
-public function sansurle($yazi){
-$this->duzenli = str_replace($this->bul, $this->degis, $yazi);
-echo $this->duzenli;
-}
+  public function sansurle($yazi){ 
 
-}
-
+  $this->duzenli = str_replace($this->bul, $this->degis, $yazi); 
+  echo $this->duzenli; 
+  
+  } 
+} 
 
 ?>
-
-

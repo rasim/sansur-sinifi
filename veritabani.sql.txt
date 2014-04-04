@@ -1,7 +1,3 @@
---
--- Tablo yapýsý: `sansur`
---
-
 CREATE TABLE IF NOT EXISTS `sansur` (
   `id` int(11) NOT NULL,
   `kelime` varchar(50) CHARACTER SET utf8 NOT NULL,
@@ -9,9 +5,9 @@ CREATE TABLE IF NOT EXISTS `sansur` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Tablo döküm verisi `sansur`
+-- Tablo dÃ¶kÃ¼m verisi `sansur`
 --
 
 INSERT INTO `sansur` (`id`, `kelime`, `sansuru`) VALUES
-(1, 'rasim', 'RaSKi'),
-(2, 'özdinç', 'ÖZEL');
+(1, 'kahrolasÄ±', '***'),
+(2, 'pislik', '******');
